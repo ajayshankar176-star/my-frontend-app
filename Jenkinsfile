@@ -13,7 +13,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'main',
-                url: 'https://github.com/nexgen369/Frontend_Batch02'
+                url: 'https://github.com/ajayshankar176-star/my-frontend-app.git'
             }
         }
 
