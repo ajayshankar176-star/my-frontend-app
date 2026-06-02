@@ -3,60 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Will You Be My Valentine?</title>
+<title>Will You Be My Valentine? ❤️</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #ff758c, #ff7eb3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    color: white;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.container {
-    background: rgba(255,255,255,0.15);
-    padding: 40px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    max-width: 500px;
+body{
+    font-family:Arial,sans-serif;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
 }
 
-h1 {
-    font-size: 2.5rem;
+.container{
+    text-align:center;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    padding:40px;
+    border-radius:20px;
+    color:white;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
 }
 
-p {
-    font-size: 1.2rem;
+h1{
+    margin-bottom:15px;
 }
 
-button {
-    padding: 12px 25px;
-    margin: 10px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 1rem;
+p{
+    margin-bottom:25px;
 }
 
-.yes {
-    background: #4CAF50;
-    color: white;
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:18px;
+    margin:10px;
 }
 
-.no {
-    background: #f44336;
-    color: white;
+.yes{
+    background:#4CAF50;
+    color:white;
 }
 
-#message {
-    margin-top: 20px;
-    font-size: 1.5rem;
-    font-weight: bold;
+.no{
+    background:#f44336;
+    color:white;
+}
+
+#message{
+    margin-top:20px;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.heart{
+    position:absolute;
+    font-size:24px;
+    animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-100px);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(110vh);
+        opacity:0;
+    }
 }
 </style>
 </head>
@@ -65,24 +88,65 @@ button {
 
 <div class="container">
     <h1>❤️ Will You Be My Valentine? ❤️</h1>
-    <p>You make every day special. Would you like to be my Valentine?</p>
+    <p>You make every day brighter. Will you be my Valentine?</p>
 
-    <button class="yes" onclick="acceptProposal()">Yes 💖</button>
-    <button class="no" onclick="declineProposal()">No 😢</button>
+    <button class="yes" onclick="sayYes()">Yes 💖</button>
+    <button class="no" id="noBtn">No 😢</button>
 
     <div id="message"></div>
 </div>
 
 <script>
-function acceptProposal() {
-    document.getElementById("message").innerHTML =
-        "🎉 Yay! You made my day! ❤️";
+
+const noBtn = document.getElementById("noBtn");
+
+function moveButton() {
+
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    noBtn.style.position = "absolute";
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
 }
 
-function declineProposal() {
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("click", moveButton);
+
+function sayYes(){
+
     document.getElementById("message").innerHTML =
-        "😄 That's okay! Have a wonderful day!";
+    "🎉 YAY! You said YES! ❤️🥰";
+
+    createHearts();
 }
+
+function createHearts(){
+
+    for(let i=0;i<50;i++){
+
+        const heart = document.createElement("div");
+
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+
+        heart.style.left =
+            Math.random() * window.innerWidth + "px";
+
+        heart.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },4000);
+    }
+}
+
 </script>
 
 </body>
