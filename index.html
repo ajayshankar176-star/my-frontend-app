@@ -3,151 +3,152 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>R u peevet Ulash ?</title>
+<title>FreshMart Grocery Delivery</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-body{
-    font-family:Arial,sans-serif;
-    height:100vh;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+body {
+    background: #f4f4f4;
 }
 
-.container{
-    text-align:center;
-    background:rgba(255,255,255,0.15);
-    backdrop-filter:blur(10px);
-    padding:40px;
-    border-radius:20px;
-    color:white;
-    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+header {
+    background: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
 
-h1{
-    margin-bottom:15px;
+.hero {
+    text-align: center;
+    padding: 40px;
+    background: #e8f5e9;
 }
 
-p{
-    margin-bottom:25px;
+.hero h1 {
+    margin-bottom: 10px;
 }
 
-button{
-    padding:12px 25px;
-    border:none;
-    border-radius:25px;
-    cursor:pointer;
-    font-size:18px;
-    margin:10px;
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
 }
 
-.yes{
-    background:#4CAF50;
-    color:white;
+.card {
+    background: white;
+    width: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-.no{
-    background:#f44336;
-    color:white;
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
 }
 
-#message{
-    margin-top:20px;
-    font-size:24px;
-    font-weight:bold;
+.card-content {
+    padding: 15px;
 }
 
-.heart{
-    position:absolute;
-    font-size:24px;
-    animation:fall 4s linear forwards;
+.price {
+    color: #2e7d32;
+    font-weight: bold;
+    margin: 10px 0;
 }
 
-@keyframes fall{
-    0%{
-        transform:translateY(-100px);
-        opacity:1;
-    }
-    100%{
-        transform:translateY(110vh);
-        opacity:0;
-    }
+button {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #1b5e20;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1> Are you Peevote Ulash ? </h1>
-    <p> </p>
+<header>
+    <h1>FreshMart Grocery Delivery</h1>
+    <p>Jenkins + S3 + CloudFront Pipeline Test</p>
+</header>
 
-    <button class="yes" onclick="sayYes()">Yes 💖</button>
-    <button class="no" id="noBtn">No 😢</button>
+<section class="hero">
+    <h1>Fresh Groceries Delivered to Your Doorstep</h1>
+    <p>Fast • Fresh • Affordable</p>
+</section>
 
-    <div id="message"></div>
-</div>
+<section class="products">
 
-<script>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=600" alt="Apples">
+        <div class="card-content">
+            <h3>Fresh Apples</h3>
+            <p>1 Kg Premium Apples</p>
+            <div class="price">₹120</div>
+            <button>Add to Cart</button>
+        </div>
+    </div>
 
-const noBtn = document.getElementById("noBtn");
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600" alt="Vegetables">
+        <div class="card-content">
+            <h3>Mixed Vegetables</h3>
+            <p>Farm Fresh Vegetables</p>
+            <div class="price">₹90</div>
+            <button>Add to Cart</button>
+        </div>
+    </div>
 
-function moveButton() {
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600" alt="Milk">
+        <div class="card-content">
+            <h3>Fresh Milk</h3>
+            <p>1 Litre Full Cream Milk</p>
+            <div class="price">₹65</div>
+            <button>Add to Cart</button>
+        </div>
+    </div>
 
-    const maxX = window.innerWidth - noBtn.offsetWidth;
-    const maxY = window.innerHeight - noBtn.offsetHeight;
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1603048297172-c92544798d5a?w=600" alt="Rice">
+        <div class="card-content">
+            <h3>Basmati Rice</h3>
+            <p>5 Kg Premium Rice</p>
+            <div class="price">₹450</div>
+            <button>Add to Cart</button>
+        </div>
+    </div>
 
-    const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxY);
+</section>
 
-    noBtn.style.position = "absolute";
-    noBtn.style.left = randomX + "px";
-    noBtn.style.top = randomY + "px";
-}
-
-noBtn.addEventListener("mouseover", moveButton);
-noBtn.addEventListener("click", moveButton);
-
-function sayYes(){
-
-    document.getElementById("message").innerHTML =
-    "🎉 YAY! You said YES! ❤️🥰";
-
-    createHearts();
-}
-
-function createHearts(){
-
-    for(let i=0;i<50;i++){
-
-        const heart = document.createElement("div");
-
-        heart.classList.add("heart");
-        heart.innerHTML = "❤️";
-
-        heart.style.left =
-            Math.random() * window.innerWidth + "px";
-
-        heart.style.animationDelay =
-            Math.random() * 2 + "s";
-
-        document.body.appendChild(heart);
-
-        setTimeout(()=>{
-            heart.remove();
-        },4000);
-    }
-}
-
-</script>
+<footer>
+    <p>© 2026 FreshMart Grocery Delivery | Hosted on AWS S3 + CloudFront</p>
+</footer>
 
 </body>
 </html>
