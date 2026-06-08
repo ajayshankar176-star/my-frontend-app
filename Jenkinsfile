@@ -4,8 +4,8 @@ pipeline {
 
     environment {
         AWS_DEFAULT_REGION = 'us-east-1'
-        S3_BUCKET = 'ajay-demo-cloudfront-bucket-2026'
-        CLOUDFRONT_DISTRIBUTION_ID = 'E3SXQX690OLSMX'
+        S3_BUCKET = 'project2313'
+        CLOUDFRONT_DISTRIBUTION_ID = 'E1V3TFXWWT9W35'
     }
 
     stages {
