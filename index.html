@@ -1,151 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FoodExpress - Food Delivery App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema Company Login</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, sans-serif;
-}
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
 
-body{
-    background:#f4f4f4;
-}
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
 
-header{
-    background:#ff6b35;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
+            background-image: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
 
-.hero{
-    text-align:center;
-    padding:50px 20px;
-    background:white;
-}
+        .overlay{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.65);
+        }
 
-.hero h1{
-    font-size:40px;
-    margin-bottom:10px;
-}
+        .login-container{
+            position:relative;
+            z-index:1;
+            width:350px;
+            padding:30px;
+            background:rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius:15px;
+            text-align:center;
+            color:white;
+            box-shadow:0 0 20px rgba(0,0,0,0.4);
+        }
 
-.hero p{
-    color:#555;
-    margin-bottom:20px;
-}
+        .login-container h1{
+            margin-bottom:10px;
+            color:#ffd700;
+        }
 
-.btn{
-    background:#ff6b35;
-    color:white;
-    padding:12px 25px;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-}
+        .login-container p{
+            margin-bottom:20px;
+        }
 
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:20px;
-}
+        input{
+            width:100%;
+            padding:12px;
+            margin:10px 0;
+            border:none;
+            border-radius:8px;
+        }
 
-.food-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
+        button{
+            width:100%;
+            padding:12px;
+            background:#e50914;
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;
+        }
 
-.card{
-    background:white;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
+        button:hover{
+            background:#b20710;
+        }
 
-.card img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-}
-
-.card-content{
-    padding:15px;
-}
-
-.card h3{
-    margin-bottom:10px;
-}
-
-.price{
-    color:#ff6b35;
-    font-weight:bold;
-}
-
-footer{
-    text-align:center;
-    padding:20px;
-    background:#333;
-    color:white;
-    margin-top:30px;
-}
-</style>
+        .footer{
+            margin-top:15px;
+            font-size:12px;
+            color:#ddd;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-    <h1>🍔 Geetha Hotel</h1>
-    <p>Fast & Delicious Food Delivery</p>
-</header>
+<div class="overlay"></div>
 
-<section class="hero">
-    <h1>Order Your Favorite Food</h1>
-    <p>Pipeline Test Application - S3 + CloudFront + Jenkins</p>
-    <button class="btn">Order Now</button>
-</section>
+<div class="login-container">
+    <h1>Cinema Company</h1>
+    <p>Rajini & Kamal Fan Portal</p>
 
-<div class="container">
-    <div class="food-grid">
+    <form>
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600" alt="Burger">
-            <div class="card-content">
-                <h3>Classic Burger</h3>
-                <p>Juicy grilled burger with cheese.</p>
-                <p class="price">₹199</p>
-            </div>
-        </div>
+        <button type="submit">Login</button>
+    </form>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600" alt="Pizza">
-            <div class="card-content">
-                <h3>Italian Pizza</h3>
-                <p>Freshly baked with premium toppings.</p>
-                <p class="price">₹299</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600" alt="Food">
-            <div class="card-content">
-                <h3>Combo Meal</h3>
-                <p>Best value meal for your family.</p>
-                <p class="price">₹499</p>
-            </div>
-        </div>
-
+    <div class="footer">
+        Powered by AWS S3 + CloudFront
     </div>
 </div>
-
-<footer>
-    <p>FoodExpress © 2026 | AWS S3 + CloudFront Deployment Test</p>
-</footer>
 
 </body>
 </html>
